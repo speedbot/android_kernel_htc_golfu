@@ -141,10 +141,7 @@ SYSCALL_DEFINE1(syncfs, int, fd)
 	int ret;
 	int fput_needed;
 
-#ifdef CONFIG_FSYNC_CONTROL
-        if (!fsynccontrol_fsync_enabled())
-          return 0;
-#endif
+
 
 	file = fget_light(fd, &fput_needed);
 	if (!file)
